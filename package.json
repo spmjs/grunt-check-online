@@ -1,0 +1,28 @@
+{
+  "name": "grunt-check-online",
+  "description": "check if the file is online.",
+  "version": "0.1.0a1",
+  "homepage": "https://github.com/spmjs/grunt-check-online",
+  "author": {
+    "name": "Hsiaoming Yang",
+    "email": "lepture@me.com",
+    "url": "http://lepture.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spmjs/grunt-check-online.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spmjs/grunt-check-online/issues"
+  },
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.6"
+  },
+  "dependencies": {
+    "async": "~0.2.6"
+  },
+  "keywords": [
+    "gruntplugin", "spmplugin"
+  ]
+}
