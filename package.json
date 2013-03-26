@@ -1,7 +1,7 @@
 {
   "name": "grunt-check-online",
   "description": "check if the file is online.",
-  "version": "0.1.0a1",
+  "version": "0.1.0a2",
   "homepage": "https://github.com/spmjs/grunt-check-online",
   "author": {
     "name": "Hsiaoming Yang",
@@ -23,6 +23,7 @@
     "async": "~0.2.6"
   },
   "keywords": [
-    "gruntplugin", "spmplugin"
+    "gruntplugin",
+    "spmplugin"
   ]
 }
