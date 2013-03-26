@@ -14,33 +14,29 @@ module.exports = function(grunt) {
     options.server = options.server.replace(/\/$/, '')
 
     var done = this.async();
-    var filename, destfile;
+    var filename;
 
-
-    async.each(this.files, function(fileObj, cb) {
-      check(fileObj, cb)
-    }, function(err) {
-      if (err) {
-        grunt.log.error('Error ' + err);
-        return false;
-      }
-      done();
-    });
-
-    function check(fileObj, cb) {
-      async.each(fileObj.src, function(filepath, cb) {
+    var distfiles = [];
+    this.files.forEach(function(fileObj) {
+      fileObj.src.forEach(function(filepath) {
         if (fileObj.cwd) {
           filename = filepath;
           filepath = path.join(fileObj.cwd, filepath);
         } else {
           filename = path.relative(fileObj.orig.cwd, filepath);
         }
-        destfile = path.join(fileObj.dest, filename);
-        checkCode(destfile, cb)
-      }, function(err) {
-        cb(err);
+        distfiles.push(path.join(fileObj.dest, filename));
       });
-    }
+    });
+
+    async.each(distfiles, checkCode, function(err) {
+      if (err) {
+        grunt.log.error('Error ' + err);
+        done(false);
+        return false;
+      }
+      done();
+    });
 
     function checkCode(destfile, callback) {
       destfile = destfile.replace(/\\/g, '/');
