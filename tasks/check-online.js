@@ -46,6 +46,9 @@ module.exports = function(grunt) {
       var parsed = url.parse(uri);
       var connect = require(parsed.protocol.slice(0, -1));
 
+      // http://stackoverflow.com/questions/12060869/why-is-node-js-only-processing-six-requests-at-a-time
+      parsed.agent = false;
+
       connect.get(parsed, function(res) {
         if (res.statusCode !== options.statusCode) {
           callback('Status Code: ' + res.statusCode);
