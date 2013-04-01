@@ -23,7 +23,7 @@ module.exports = function(grunt) {
           filename = filepath;
           filepath = path.join(fileObj.cwd, filepath);
         } else {
-          filename = path.relative(fileObj.orig.cwd, filepath);
+          filename = path.relative(fileObj.orig.cwd || '', filepath);
         }
         distfiles.push(path.join(fileObj.dest, filename));
       });
