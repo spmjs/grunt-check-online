@@ -60,3 +60,10 @@ Type: `String`
 Default value: `http://localhost`
 
 The server.
+
+
+## Changelog
+
+**April 1st, 2013** `0.1.0`
+
+First version.
