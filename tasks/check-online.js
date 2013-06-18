@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     async.each(distfiles, checkCode, function(err) {
       if (err) {
         grunt.log.error('Error ' + err);
-        onFailure && onFailure();
+        options.onFailure && options.onFailure();
         done(false);
         return false;
       }
