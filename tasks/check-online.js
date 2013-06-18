@@ -9,7 +9,8 @@ module.exports = function(grunt) {
     var options = this.options({
       // status code should be option.statusCode
       statusCode: 404,
-      server: 'http://localhost'
+      server: 'http://localhost',
+      exitOnFail: false
     });
     options.server = options.server.replace(/\/$/, '')
 
@@ -32,8 +33,12 @@ module.exports = function(grunt) {
     async.each(distfiles, checkCode, function(err) {
       if (err) {
         grunt.log.error('Error ' + err);
-        done(false);
-        return false;
+        if (options.exitOnFail) {
+            process.exit(0);
+        } else {
+            done(false);
+            return false;
+        }
       }
       done();
     });

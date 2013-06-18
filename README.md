@@ -32,7 +32,8 @@ grunt.initConfig({
     options: {
         // the response status code should be 404
         statusCode: 404,
-        server: 'http://example.com'
+        server: 'http://example.com',
+        exitOnFail: true
     },
     your_target: {
         files: [{
@@ -61,8 +62,17 @@ Default value: `http://localhost`
 
 The server.
 
+#### options.exitOnFail
+Type: `boolean`
+Default value: `false`
+
+If process exit when check failed.
 
 ## Changelog
+
+**June 18th, 2013** `0.1.1`
+
+add exitOnFail.
 
 **April 1st, 2013** `0.1.0`
 
