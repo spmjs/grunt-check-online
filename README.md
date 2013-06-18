@@ -62,17 +62,17 @@ Default value: `http://localhost`
 
 The server.
 
-#### options.exitOnFail
-Type: `boolean`
-Default value: `false`
+#### options.onFailure
+Type: `function`
+Default value: `null`
 
-If process exit when check failed.
+Callback when check failed.
 
 ## Changelog
 
 **June 18th, 2013** `0.1.1`
 
-add exitOnFail.
+Add option onFailure.
 
 **April 1st, 2013** `0.1.0`
 
