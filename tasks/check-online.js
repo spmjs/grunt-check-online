@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 
       connect.get(parsed, function(res) {
         if (res.statusCode !== options.statusCode) {
-          callback('Status Code: ' + res.statusCode);
+          callback('Check ' + 'Status Code: ' + res.statusCode);
         } else {
           callback();
         }
