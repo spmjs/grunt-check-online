@@ -70,6 +70,10 @@ Callback when check failed.
 
 ## Changelog
 
+`0.1.2`
+
+Update output for error code.
+
 **June 18th, 2013** `0.1.1`
 
 Add option onFailure.
