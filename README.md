@@ -70,6 +70,10 @@ Callback when check failed.
 
 ## Changelog
 
+**October 28th, 2013** `0.1.3`
+
+Treat network error like 404 status.
+
 `0.1.2`
 
 Update output for error code.

@@ -1,4 +1,3 @@
-
 var url = require('url');
 var path = require('path');
 var async = require('async');
@@ -57,7 +56,14 @@ module.exports = function(grunt) {
         } else {
           callback();
         }
+      }).on('error', function(e) {
+        if (404 !== options.statusCode) {
+          callback('Check ' + 'Status Code: ' + 404);
+        } else {
+          callback();
+        }
       });
     }
   });
 };
+
