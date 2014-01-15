@@ -2,6 +2,9 @@ var url = require('url');
 var path = require('path');
 var async = require('async');
 
+// http://stackoverflow.com/questions/11322709/nodejs-https-client-errors-400
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+
 module.exports = function(grunt) {
   grunt.registerMultiTask('check-online', 'Check if the file is online.', function() {
 
