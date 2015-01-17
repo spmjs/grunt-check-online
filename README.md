@@ -70,6 +70,10 @@ Callback when check failed.
 
 ## Changelog
 
+**Jan 18th, 2015** `0.3.0`
+
+fix fileObj using expand
+
 **October 28th, 2013** `0.1.3`
 
 Treat network error like 404 status.

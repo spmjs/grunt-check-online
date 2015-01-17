@@ -1,5 +1,4 @@
 var url = require('url');
-var path = require('path');
 var async = require('async');
 
 // http://stackoverflow.com/questions/11322709/nodejs-https-client-errors-400
@@ -14,22 +13,13 @@ module.exports = function(grunt) {
       server: 'http://localhost',
       onFailure: null
     });
-    options.server = options.server.replace(/\/$/, '')
+    options.server = options.server.replace(/\/$/, '');
 
     var done = this.async();
-    var filename;
 
     var distfiles = [];
     this.files.forEach(function(fileObj) {
-      fileObj.src.forEach(function(filepath) {
-        if (fileObj.cwd) {
-          filename = filepath;
-          filepath = path.join(fileObj.cwd, filepath);
-        } else {
-          filename = path.relative(fileObj.orig.cwd || '', filepath);
-        }
-        distfiles.push(path.join(fileObj.dest, filename));
-      });
+      distfiles.push(fileObj.dest);
     });
 
     async.each(distfiles, checkCode, function(err) {
@@ -59,7 +49,7 @@ module.exports = function(grunt) {
         } else {
           callback();
         }
-      }).on('error', function(e) {
+      }).on('error', function() {
         if (404 !== options.statusCode) {
           callback('Check ' + 'Status Code: ' + 404);
         } else {
@@ -69,4 +59,3 @@ module.exports = function(grunt) {
     }
   });
 };
-
